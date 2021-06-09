@@ -1,0 +1,176 @@
+
+configuration {
+lines:							6;
+columns:						3;
+font: 							"Roboto Mono 12";
+    bw: 							0;
+    location: 						0;
+    padding: 						0;
+    fixed-num-lines: 				true;
+    show-icons: 					false;
+    sidebar-mode: 					true;
+    separator-style: 				"beam";
+    hide-scrollbar: 				true;
+    scroll-method: 					0;
+    click-to-exit: 					true;
+    show-match: 					false;
+    combi-hide-mode-prefix: 		false;
+    display-window: 				"Window";
+    display-windowcd: 				"Windowcd";
+    display-run: 					"Commands";
+    display-ssh: 					"Ssh";
+    display-drun: 					"start";
+    display-combi: 					"Combi";
+}
+
+window {
+transparency:                   "real";
+border-radius:                  10px;
+location:                       south;
+width:							50px;
+x-offset:                       0px;
+y-offset:                       -20px;
+}
+
+* {
+    background-color:             	@bg;
+}
+
+window {
+    border: 						3px;
+    border-color: 					#201f1c;
+    border-radius: 					10px;
+    padding: 						20;
+    width: 							30%;
+}
+
+prompt {
+    spacing: 						0;
+    border: 						0;
+    text-color: 					@fg;
+}
+
+textbox-prompt-colon {
+    expand: 						false;
+    str: 							"  ";
+    margin:							0px 4px 0px 0px;
+    text-color: 					inherit;
+}
+
+entry {
+    spacing:    					0;
+    text-color: 					#2e2e2e;
+}
+
+case-indicator {
+    spacing:    					0;
+    text-color: 					#2e2e2e;
+}
+
+inputbar {
+    spacing:    					0px;
+    text-color: 					@fg;
+    padding:    					1px;
+    children: 						[ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+mainbox {
+    border: 						0px;
+    border-color: 					@bg;
+    padding: 						6;
+}
+
+listview {
+    fixed-height: 					0;
+    border: 						0px;
+    border-color: 					#303030;
+    spacing: 						4px;
+    scrollbar: 						false;
+    padding: 						5px 5px 0px 5px;
+}
+
+element {
+    border: 						0px;
+    border-radius: 					6px;
+    padding: 						5px;
+}
+element normal.normal {
+    background-color: 				@bg;
+    text-color:       				#2e2e2e;
+}
+element normal.urgent {
+    background-color: 				@bg;
+    text-color:       				@red;
+}
+element normal.active {
+    background-color: 				@green;
+    text-color:       				@bg;
+}
+element selected.normal {
+    background-color: 				@fg;
+    text-color:       				@bg;
+}
+element selected.urgent {
+    background-color: 				@bg;
+    text-color:       				@red;
+}
+element selected.active {
+    background-color: 				@fg;
+    text-color:       				@bg;
+}
+element alternate.normal {
+    background-color: 				@bg;
+    text-color:       				#2e2e2e;
+}
+element alternate.urgent {
+    background-color: 				@bg;
+    text-color:       				@fg;
+}
+element alternate.active {
+    background-color: 				@bg;
+    text-color:       				@fg;
+}
+
+sidebar {
+    border:       					0px;
+    border-color: 					@ac;
+    border-radius: 					10px;
+}
+
+button {
+    background-color:             	@fg;
+    margin: 						5px;
+    padding: 						5px;
+    text-color: 					@bg;
+    border: 						0px;
+    border-radius: 					6px;
+    border-color: 					@bg;
+}
+
+button selected {
+    background-color:             	@fg;
+    text-color: 					@bg;
+    border: 						0px;
+    border-radius: 					5px;
+    border-color: 					@bg;
+}
+
+scrollbar {
+    width:        					4px;
+    border:       					0px;
+    handle-color: 					@fg;
+    handle-width: 					8px;
+    padding:      					0;
+}
+
+message {
+    border: 						0px;
+    border-color: 					@ac;
+    padding: 						1px;
+}
+
+textbox {
+    text-color: 					#2e2e2e;
+}
+
+@import "/home/k/.config/rofi/themes/colors.rasi"

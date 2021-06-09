@@ -1,0 +1,77 @@
+* {
+    all: unset;
+}
+
+.bar, .dock {
+  background-color: #f7f1e3;
+  border: 3px solid;
+  border-color: #201f1c;
+  border-radius: 15px;
+}
+
+.text {
+  font-family: "Roboto Mono Medium";
+  font-size: 25px;
+  color: #201f1c;
+}
+
+.firefox button, .thunar button, .atom button, .close_dock button, {
+  background-size: 60px;
+}
+
+.powermenu {
+  background-image: url("/home/k/.config/eww/images/powermenu.png");
+}
+
+.quit {
+  font-family: "Font Awesome 5 Free";
+  font-size: 20px;
+  color:  #201f1c;
+}
+
+.player {
+  background-image: url("/home/k/.config/eww/images/player.png");
+}
+
+.workspaces {
+  font-family: "Font Awesome 5 Free";
+  font-size: 25px;
+  color: #201f1c;
+}
+
+.workspaces button {
+  padding: 15px;
+}
+
+.sep, .sep2, .sep3, .sep4, .sep5, .sep6, .sep7 {
+  background-color: #201f1c;
+}
+
+.sep7 {
+ border-radius: 15px;
+}
+.launcher button, .dock_launcher-btn {
+  font-family: "Font Awesome 5 Free";
+  font-size: 25px;
+  color: #201f1c;
+}
+
+.dock_launcher button {
+  font-family: "Font Awesome 5 Free";
+  font-size: 25px;
+  color: #201f1c;
+}
+
+.power button {
+  font-family: "Font Awesome 5 Free";
+  font-size: 25px;
+  color: #201f1c;
+}
+
+.time {
+    font-size: 25px;
+    font-family: "Roboto Mono Nerd Font";
+    color: #201f1c;
+    font-weight: 700;
+    padding: 100px;
+}

@@ -1,0 +1,49 @@
+! special
+*.foreground:   #201f1c
+*.background:   #f7f1e3
+*.cursorColor:  #201f1c
+
+*.color0:       #201f1c
+*.color1:       #ff9f9f
+*.color2:       #9fffa2
+*.color3:       #fff19f
+*.color4:       #a0d4cf
+*.color5:       #cba0d4
+*.color6:       #d4dcff
+*.color7:       #fff9ec
+*.color8:       #425159
+*.color9:       #ffcece
+*.color10:      #cdfdc8
+*.color11:      #ffebc0
+*.color12:      #c6eae6
+*.color13:      #d3c6ea
+*.color14:      #ece9fd
+*.color15:      #ffffff
+
+
+*font: xft:Roboto Mono Nerd Font:size=15
+
+*boldFont:
+*lineSpace:             3
+*letterSpace:           0
+*geometry:              50x20
+*internalBorder:        30
+*scrollBar:             false
+
+
+! xft fonts settings
+Xft.autohint:           0
+Xft.lcdfilter:          lcddefault
+Xft.hinting:            1
+Xft.hintstyle:          hintslight
+Xft.antialias:          1
+Xft.rgba:               rgb
+
+URxvt.perl-ext-common: config-reload
+
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:

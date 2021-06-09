@@ -1,0 +1,323 @@
+<eww>
+  <definitions>
+    <def name="bar">
+        <box/>
+    </def>
+    <def name="powermenu">
+        <box/>
+    </def>
+    <def name="dock">
+        <box/>
+    </def>
+    <def name="sep">
+        <box/>
+    </def>
+    <def name="player">
+        <box/>
+    </def>
+    <def name="text">
+    <box orientation="v" space-evenly="true">
+        <box class="text">Hello</box>
+    </box>
+</def>
+    <def name="previous">
+    <box orientation="v" space-evenly="true">
+        <box class="previous-btn" orientation="v" space-evenly="true">
+            <button onclick="playerctl previous" style="background-image:url('/home/k/.config/eww/images/previous.png')"></button>
+        </box>
+    </box>
+</def>
+    <def name="pause_play">
+    <box orientation="v" space-evenly="true">
+        <box class="pause_play-btn" orientation="v" space-evenly="true">
+            <button class="pause-play" onclick="playerctl play-pause" style="background-image:url('/home/k/.config/eww/images/stop.png')"></button>
+        </box>
+    </box>
+</def>
+    <def name="next">
+    <box orientation="v" space-evenly="true">
+        <box class="next-btn" orientation="v" space-evenly="true">
+            <button onclick="playerctl next" style="background-image:url('/home/k/.config/eww/images/next.png')"></button>
+        </box>
+    </box>
+</def>
+<def name="quit">
+<box orientation="v" space-evenly="true">
+    <box class="quit-btn" orientation="v" space-evenly="true">
+        <button onclick="eww close player & eww close next & eww close pause_play & eww close previous & eww close quit & eww close text"></button>
+    </box>
+</box>
+</def>
+    <def name="workspaces">
+        <box orientation="h" class="workspaces" space-evenly="true" halign="start"> <!-- Your workspaces.-->
+          <button onclick="wmctrl -s 0"></button>
+          <button onclick="wmctrl -s 1"></button>
+          <button onclick="wmctrl -s 2"></button>
+          <button onclick="wmctrl -s 3"></button>
+          <button onclick="wmctrl -s 4"></button>
+        </box>
+    </def>
+<def name="launcher">
+    <box orientation="v" space-evenly="true">
+        <box class="launcher-btn" orientation="v" space-evenly="true">
+            <button onclick="eww open-many player previous pause_play next quit text"></button>
+        </box>
+    </box>
+</def>
+<def name="dock_launcher">
+    <box orientation="v" space-evenly="true">
+        <box class="dock_launcher-btn" orientation="v" space-evenly="true">
+            <button onclick="eww open-many dock sep7 firefox atom thunar close_dock"></button>
+        </box>
+    </box>
+</def>
+<def name="firefox">
+    <box orientation="v" space-evenly="true">
+        <box class="firefox-btn" orientation="v" space-evenly="true">
+            <button onclick="setsid -f firefox" style="background-image:url('/home/k/.config/eww/icons/internet.ico')"></button>
+        </box>
+    </box>
+</def>
+<def name="thunar">
+    <box orientation="v" space-evenly="true">
+        <box class="firefox-btn" orientation="v" space-evenly="true">
+            <button onclick="setsid -f thunar ~/" style="background-image:url('/home/k/.config/eww/icons/files.ico')"></button>
+        </box>
+    </box>
+</def>
+<def name="atom">
+    <box orientation="v" space-evenly="true">
+        <box class="firefox-btn" orientation="v" space-evenly="true">
+            <button onclick="setsid -f atom" style="background-image:url('/home/k/.config/eww/icons/edit.ico')"></button>
+        </box>
+    </box>
+</def>
+<def name="close_dock">
+    <box orientation="v" space-evenly="true">
+        <box class="close_dock-btn" orientation="v" space-evenly="true">
+            <button onclick= "eww close sep7 & eww close dock & eww close firefox & eww close atom & eww close thunar & eww close close_dock" style="background-image:url('/home/k/.config/eww/icons/close.png')"></button>
+        </box>
+    </box>
+</def>
+<def name="power">
+    <box orientation="v" space-evenly="true">
+        <box class="power-btn" orientation="v" space-evenly="true">
+            <button onclick="eww open-many powermenu shutdown reboot close"></button>
+        </box>
+    </box>
+</def>
+<def name="close">
+<box orientation="v" space-evenly="true">
+    <box class="close-btn" orientation="v" space-evenly="true">
+        <button onclick="eww close powermenu & eww close reboot & eww close shutdown & eww close close" style="background-image:url('/home/k/.config/eww/images/close.png')"></button>
+    </box>
+</box>
+</def>
+<def name="shutdown">
+<box orientation="v" space-evenly="true">
+    <box class="shutdown-btn" orientation="v" space-evenly="true">
+        <button onclick="shutdown now" style="background-image:url('/home/k/.config/eww/images/shutdown.png')"></button>
+    </box>
+</box>
+</def>
+<def name="reboot">
+<box orientation="v" space-evenly="true">
+    <box class="reboot-btn" orientation="v" space-evenly="true">
+        <button onclick="reboot" style="background-image:url('/home/k/.config/eww/images/reboot.png')"></button>
+    </box>
+</box>
+</def>
+<def name="date">
+    <box orientation="v" space-evenly="true">
+        <box orientation="h" class="time">
+            <box class="hour">{{hour}}</box>
+            <box class="semicolon">:</box>
+            <box class="minute">{{minute}}</box>
+        </box>
+    </box>
+</def>
+</definitions>
+
+    <variables>
+      <!-- DATE VARS -->
+      <script-var name="minute" interval="10s">date "+%M"</script-var>
+      <script-var name="hour" interval="5m">date "+%H"</script-var>
+
+        <!-- PLAYER VARS -->
+        <script-var name="art" interval="5s">~/.config/eww/scripts/echoSongArt</script-var>
+        <script-var name="song_title" interval="2s">~/.config/eww/scripts/getSongTitle</script-var>
+
+    </variables>
+
+    <windows>
+        <window name="bar" screen="0">
+            <geometry x="55px" y="40px" width="1800px" height="70px"/>
+            <reserve side="top" distance="4%" layer="top"/>
+            <widget>
+                <bar/>
+            </widget>
+        </window>
+        <window name="sep">
+          <geometry x="130px" y="40px" width="3px" height="70px"/>
+          <widget>
+              <sep/>
+          </widget>
+      </window>
+      <window name="powermenu">
+        <geometry x="810px" y="510px" width="300px" height="170px"/>
+        <widget>
+            <powermenu/>
+        </widget>
+    </window>
+    <window name="close">
+      <geometry x="1079px" y="518px" width="18px" height="18px"/>
+      <widget>
+          <close/>
+      </widget>
+  </window>
+  <window name="shutdown">
+    <geometry x="865px" y="620px" width="76px" height="30px"/>
+    <widget>
+        <shutdown/>
+    </widget>
+</window>
+<window name="reboot">
+  <geometry x="980px" y="620px" width="76px" height="30px"/>
+  <widget>
+      <reboot/>
+  </widget>
+</window>
+    <window name="dock">
+      <geometry x="750px" y="960px" width="420px" height="100px"/>
+      <widget>
+          <dock/>
+      </widget>
+  </window>
+  <window name="firefox">
+    <geometry x="775px" y="978px" width="60px" height="60px"/>
+    <widget>
+        <firefox/>
+    </widget>
+</window>
+<window name="thunar">
+  <geometry x="870px" y="978px" width="60px" height="60px"/>
+  <widget>
+      <thunar/>
+  </widget>
+</window>
+<window name="atom">
+  <geometry x="965px" y="978px" width="60px" height="60px"/>
+  <widget>
+      <atom/>
+  </widget>
+</window>
+<window name="close_dock">
+  <geometry x="1086px" y="978px" width="60px" height="60px"/>
+  <widget>
+      <close_dock/>
+  </widget>
+</window>
+      <window name="sep2">
+        <geometry x="1750px" y="40px" width="3px" height="70px"/>
+        <widget>
+            <sep/>
+        </widget>
+    </window>
+    <window name="sep3">
+      <geometry x="450px" y="40px" width="3px" height="70px"/>
+      <widget>
+          <sep/>
+      </widget>
+  </window>
+  <window name="sep4">
+    <geometry x="1830px" y="40px" width="3px" height="70px"/>
+    <widget>
+        <sep/>
+    </widget>
+</window>
+<window name="sep5">
+  <geometry x="1560px" y="40px" width="3px" height="70px"/>
+  <widget>
+      <sep/>
+  </widget>
+</window>
+<window name="sep6">
+  <geometry x="1468px" y="40px" width="3px" height="70px"/>
+  <widget>
+      <sep/>
+  </widget>
+</window>
+<window name="sep7">
+  <geometry x="1055px" y="980px" width="3px" height="60px"/>
+  <widget>
+      <sep/>
+  </widget>
+</window>
+      <window name="workspaces">
+        <geometry x="150px" y="40px" width="100px" height="70px"/>
+        <widget>
+            <workspaces/>
+        </widget>
+      </window>
+        <window name="launcher">
+            <geometry x="60px" y="40px" width="70px" height="70px"/>
+            <widget>
+                <launcher/>
+            </widget>
+        </window>
+        <window name="dock_launcher">
+            <geometry x="1480px" y="40px" width="70px" height="70px"/>
+            <widget>
+                <dock_launcher/>
+            </widget>
+        </window>
+        <window name="player">
+            <geometry x="15px" y="115px" width="243px" height="150px"/>
+            <widget>
+                <player/>
+            </widget>
+        </window>
+        <window name="previous">
+    <geometry x="60px" y="206px" width="15px" height="15px"/>
+    <widget>
+        <previous/>
+    </widget>
+</window>
+<window name="pause_play">
+    <geometry x="129px" y="204px" width="14px" height="19px"/>
+    <widget>
+        <pause_play/>
+    </widget>
+</window>
+<window name="next">
+    <geometry x="197px" y="206px" width="15px" height="15px"/>
+    <widget>
+        <next/>
+    </widget>
+</window>
+<window name="text">
+    <geometry x="100px" y="145px" width="25px" height="25px"/>
+    <widget>
+        <text/>
+    </widget>
+</window>
+<window name="quit">
+    <geometry x="220px" y="142px" width="25px" height="25px"/>
+    <widget>
+        <quit/>
+    </widget>
+</window>
+        <window name="power">
+          <geometry x="1779px" y="40px" width="3px" height="70px"/>
+          <widget>
+              <power/>
+          </widget>
+      </window>
+        <window name="date">
+            <geometry x="1500px" y="-40px" width="310px" height="100px"/>
+            <widget>
+                <date/>
+            </widget>
+        </window>
+    </windows>
+</eww>
